@@ -1,7 +1,7 @@
 package jandtocode.pokedex.entity;
 
 import jakarta.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "pokemon")
@@ -15,7 +15,7 @@ public class Pokemon {
     @Column(name = "nombre")
     private String nombre;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tipo_id")
     private Tipo tipo;
 
@@ -34,29 +34,29 @@ public class Pokemon {
     @Column(name = "imagen_url")
     private String imagenUrl;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "pokemon_poder",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "poder_id")
     )
-    private List<Poder> poderes;
+    private Set<Poder> poderes;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "pokemon_debilidad",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "tipo_id")
     )
-    private List<Tipo> debilidades;
+    private Set<Tipo> debilidades;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "pokemon_juego",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "juego_id")
     )
-    private List<Juego> juegos;
+    private Set<Juego> juegos;
 
     // Constructor vacío
     public Pokemon() {}
@@ -94,15 +94,15 @@ public class Pokemon {
         return imagenUrl;
     }
 
-    public List<Poder> getPoderes() {
+    public Set<Poder> getPoderes() {
         return poderes;
     }
 
-    public List<Tipo> getDebilidades() {
+    public Set<Tipo> getDebilidades() {
         return debilidades;
     }
 
-    public List<Juego> getJuegos() {
+    public Set<Juego> getJuegos() {
         return juegos;
     }
 
@@ -139,15 +139,15 @@ public class Pokemon {
         this.imagenUrl = imagenUrl;
     }
 
-    public void setPoderes(List<Poder> poderes) {
+    public void setPoderes(Set<Poder> poderes) {
         this.poderes = poderes;
     }
 
-    public void setDebilidades(List<Tipo> debilidades) {
+    public void setDebilidades(Set<Tipo> debilidades) {
         this.debilidades = debilidades;
     }
 
-    public void setJuegos(List<Juego> juegos) {
+    public void setJuegos(Set<Juego> juegos) {
         this.juegos = juegos;
     }
 

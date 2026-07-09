@@ -1,6 +1,6 @@
 package jandtocode.pokedex.dto;
 
-import java.util.List;
+import java.util.Set;
 
 public class PokemonDetailDTO {
 
@@ -12,9 +12,9 @@ public class PokemonDetailDTO {
     private Double altura;
     private Double peso;
     private String imagenUrl;
-    private List<PoderDTO> poderes;
-    private List<TipoDTO> debilidades;
-    private List<JuegoDTO> juegos;
+    private Set<PoderDTO> poderes;
+    private Set<TipoDTO> debilidades;
+    private Set<JuegoDTO> juegos;
 
     // Constructor vacío
     public PokemonDetailDTO() {}
@@ -22,7 +22,7 @@ public class PokemonDetailDTO {
     // Constructor con parámetros
     public PokemonDetailDTO(Integer id, String nombre, TipoDTO tipo, String familia,
                             String evolucion, Double altura, Double peso, String imagenUrl,
-                            List<PoderDTO> poderes, List<TipoDTO> debilidades, List<JuegoDTO> juegos) {
+                            Set<PoderDTO> poderes, Set<TipoDTO> debilidades, Set<JuegoDTO> juegos) {
         this.id = id;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -69,15 +69,15 @@ public class PokemonDetailDTO {
         return imagenUrl;
     }
 
-    public List<PoderDTO> getPoderes() {
+    public Set<PoderDTO> getPoderes() {
         return poderes;
     }
 
-    public List<TipoDTO> getDebilidades() {
+    public Set<TipoDTO> getDebilidades() {
         return debilidades;
     }
 
-    public List<JuegoDTO> getJuegos() {
+    public Set<JuegoDTO> getJuegos() {
         return juegos;
     }
 
@@ -114,15 +114,15 @@ public class PokemonDetailDTO {
         this.imagenUrl = imagenUrl;
     }
 
-    public void setPoderes(List<PoderDTO> poderes) {
+    public void setPoderes(Set<PoderDTO> poderes) {
         this.poderes = poderes;
     }
 
-    public void setDebilidades(List<TipoDTO> debilidades) {
+    public void setDebilidades(Set<TipoDTO> debilidades) {
         this.debilidades = debilidades;
     }
 
-    public void setJuegos(List<JuegoDTO> juegos) {
+    public void setJuegos(Set<JuegoDTO> juegos) {
         this.juegos = juegos;
     }
 }
