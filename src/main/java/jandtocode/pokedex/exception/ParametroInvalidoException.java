@@ -6,6 +6,6 @@ public class ParametroInvalidoException extends RuntimeException {
     }
 
     public ParametroInvalidoException(String parametro, String contexto) {
-        super("El parámetro '" + parametro + "' no es válido, " + contexto);
+        super("El parámetro '" + parametro + "' no es válido!! " + contexto);
     }
 }

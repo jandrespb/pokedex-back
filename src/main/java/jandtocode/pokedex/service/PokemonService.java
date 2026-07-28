@@ -62,9 +62,11 @@ public class PokemonService {
     @Transactional(readOnly = true)
     public PokemonDetailDTO buscarPokemon(String query) {
 
+        String mensajeContexto = "Solo se permiten cadenas de texto sin caracteres especiales y números enteros positivos";
+
         // Validar longitud máxima
         if (query.length() > 12) {
-            throw new ParametroInvalidoException(query, "solo se permiten letras, sin números ni caracteres especiales, máximo 12 caracteres");
+            throw new ParametroInvalidoException(query, mensajeContexto);
         }
 
         // Es número → busca por id
@@ -75,7 +77,7 @@ public class PokemonService {
 
         // Validar solo letras
         if (!query.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
-            throw new ParametroInvalidoException(query, "solo se permiten letras, sin números ni caracteres especiales, máximo 12 caracteres");
+            throw new ParametroInvalidoException(query, mensajeContexto);
         }
 
         // Capitalizar
