@@ -7,6 +7,7 @@ import jandtocode.pokedex.dto.PoderDTO;
 import jandtocode.pokedex.dto.TipoDTO;
 import jandtocode.pokedex.entity.Pokemon;
 import jandtocode.pokedex.exception.PaginaInvalidaException;
+import jandtocode.pokedex.exception.ParametroInvalidoException;
 import jandtocode.pokedex.exception.PokemonNotFoundException;
 import jandtocode.pokedex.repository.PokemonRepository;
 import org.springframework.data.domain.PageRequest;
@@ -54,6 +55,41 @@ public class PokemonService {
 
         Pokemon pokemon = pokemonRepository.findByIdWithRelations(id)
                 .orElseThrow(() -> new PokemonNotFoundException(id));
+
+        return mapearDetalle(pokemon);
+    }
+
+    @Transactional(readOnly = true)
+    public PokemonDetailDTO buscarPokemon(String query) {
+
+        // Validar longitud máxima
+        if (query.length() > 12) {
+            throw new ParametroInvalidoException(query, "solo se permiten letras, sin números ni caracteres especiales, máximo 12 caracteres");
+        }
+
+        // Es número → busca por id
+        if (query.matches("[0-9]+")) {
+            Integer id = Integer.parseInt(query);
+            return obtenerDetalle(id);
+        }
+
+        // Validar solo letras
+        if (!query.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]+")) {
+            throw new ParametroInvalidoException(query, "solo se permiten letras, sin números ni caracteres especiales, máximo 12 caracteres");
+        }
+
+        // Capitalizar
+        String nombreCapitalizado = query.substring(0, 1).toUpperCase() + query.substring(1).toLowerCase();
+
+        // Buscar por nombre
+        Pokemon pokemon = pokemonRepository.findByNameWithRelations(nombreCapitalizado)
+                .orElseThrow(() -> new PokemonNotFoundException(nombreCapitalizado));
+
+        return mapearDetalle(pokemon);
+    }
+
+    // Método privado reutilizable
+    private PokemonDetailDTO mapearDetalle(Pokemon pokemon) {
 
         TipoDTO tipoDTO = new TipoDTO(
                 pokemon.getTipo().getId(),

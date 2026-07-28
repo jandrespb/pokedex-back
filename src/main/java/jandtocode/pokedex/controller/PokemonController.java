@@ -28,4 +28,9 @@ public class PokemonController {
     public ResponseEntity<PokemonDetailDTO> obtenerDetalle(@PathVariable Integer id) {
         return ResponseEntity.ok(pokemonService.obtenerDetalle(id));
     }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<PokemonDetailDTO> buscarPokemon(@RequestParam String query) {
+        return ResponseEntity.ok(pokemonService.buscarPokemon(query));
+    }
 }

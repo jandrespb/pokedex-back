@@ -23,4 +23,12 @@ public interface PokemonRepository extends JpaRepository<Pokemon, Integer> {
             "WHERE p.id = :id")
     Optional<Pokemon> findByIdWithRelations(@Param("id") Integer id);
 
+    @Query("SELECT p FROM Pokemon p " +
+            "JOIN FETCH p.tipo " +
+            "JOIN FETCH p.poderes " +
+            "JOIN FETCH p.debilidades " +
+            "JOIN FETCH p.juegos " +
+            "WHERE p.nombre = :nombre")
+    Optional<Pokemon> findByNameWithRelations(@Param("nombre") String nombre);
+
 }
