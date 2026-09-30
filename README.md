@@ -11,26 +11,20 @@ el comportamiento de una API consumida por una aplicacion web. No es necesario
 usar Swagger; los endpoints y ejemplos de respuesta estan documentados en este
 README.
 
-## Descargar la rama de pruebas
+## Descargar el proyecto
 
-La version utilizada para las pruebas se encuentra en la rama
-`test-backend`:
-
-[Ver la rama `test-backend` en GitHub](https://github.com/jandrespb/pokedex/tree/test-backend)
-
-Puedes clonar directamente esa rama:
+Este backend utiliza la rama principal `main`. Puedes clonar directamente el
+repositorio:
 
 ```bash
-git clone --branch test-backend --single-branch https://github.com/jandrespb/pokedex.git
-cd pokedex
+git clone https://github.com/jandrespb/pokedex-back.git
+cd pokedex-back
 ```
 
-O descargarla desde GitHub seleccionando la rama `test-backend` y usando
-**Code > Download ZIP**.
+Tambien puedes descargar el proyecto desde GitHub seleccionando la rama `main`
+y usando **Code > Download ZIP**:
 
-Tambien puedes descargar el ZIP directamente:
-
-[Descargar `test-backend` en ZIP](https://github.com/jandrespb/pokedex/archive/refs/heads/test-backend.zip)
+[Descargar el proyecto en ZIP](https://github.com/jandrespb/pokedex-back/archive/refs/heads/main.zip)
 
 ## Requisitos previos
 
@@ -276,6 +270,5 @@ src/main/java/jandtocode/pokedex/
 
 ## Recursos
 
-- [Repositorio del proyecto Pokedex](https://github.com/jandrespb/pokedex)
-- [Rama `test-backend`](https://github.com/jandrespb/pokedex/tree/test-backend)
+- [Repositorio del backend](https://github.com/jandrespb/pokedex-back)
 - [Documentacion de Spring Boot](https://spring.io/projects/spring-boot)
