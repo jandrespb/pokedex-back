@@ -5,6 +5,13 @@ Backend de la Pokedex, desarrollado con **Spring Boot**, **Spring Data JPA** y
 informacion necesaria para consultar Pokemon, sus caracteristicas, poderes,
 debilidades y juegos relacionados.
 
+El proyecto frontend que consume esta API se encuentra en:
+
+[Repositorio del Frontend Pokedex](https://github.com/jandrespb/pokedex-front)
+
+Toda la documentacion de instalacion, ejecucion y uso del frontend esta
+disponible en el README de ese repositorio.
+
 El proyecto esta pensado especialmente para **practicar QA**: permite probar
 casos felices, validaciones de parametros, paginacion, respuestas de error y
 el comportamiento de una API consumida por una aplicacion web. No es necesario
@@ -271,5 +278,6 @@ src/main/java/jandtocode/pokedex/
 
 ## Recursos
 
-- [Repositorio del Frontend Pokedex](https://github.com/jandrespb/pokedex/tree/test-backend)
+- [Repositorio del Frontend Pokedex](https://github.com/jandrespb/pokedex-front)
+- [Repositorio del Backend Pokedex](https://github.com/jandrespb/pokedex-back)
 - [Documentacion de Spring Boot](https://spring.io/projects/spring-boot)
