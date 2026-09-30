@@ -66,7 +66,8 @@ La aplicacion usa por defecto la siguiente configuracion en
 Host: localhost
 Puerto de MySQL: 3306
 Base de datos: pokedex-db
-Usuario: springstudent
+Usuario: #Cualquiera#
+Contraseña: #Cualquiera#
 ```
 
 Configura la contrasena y cualquier otro dato de conexion en
@@ -270,5 +271,5 @@ src/main/java/jandtocode/pokedex/
 
 ## Recursos
 
-- [Repositorio del backend](https://github.com/jandrespb/pokedex-back)
+- [Repositorio del Frontend Pokedex](https://github.com/jandrespb/pokedex/tree/test-backend)
 - [Documentacion de Spring Boot](https://spring.io/projects/spring-boot)
